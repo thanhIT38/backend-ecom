@@ -6,7 +6,12 @@ import router from "./routes/index.js";
 
 const app = express();
 
-app.use(cors());
+const corsOptions ={
+  origin:'https://frontend-six-inky.vercel.app/', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '70mb' }));
 app.use(express.urlencoded({ limit: '70mb', extended: true }));
 
